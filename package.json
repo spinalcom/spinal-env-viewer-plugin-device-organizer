@@ -1,0 +1,21 @@
+{
+	"name": "spinal-env-viewer-plugin-move-device",
+	"version": "1.0.0",
+	"main": "src/index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"dependencies": {
+		"spinal-connector-service": "git+https://github.com/spinalcom/spinal-connector-service.git",
+		"spinal-env-viewer-context-menu-service": "git+https://github.com/spinalcom/spinal-env-viewer-context-menu-service.git",
+		"spinal-env-viewer-graph-service": "git+https://github.com/spinalcom/Spinal-Graph-Service.git",
+		"spinal-model-bmsnetwork": "git+https://github.com/spinalcom/spinal-model-bmsnetwork.git",
+		"spinal-model-opcua": "git+https://github.com/spinalcom/spinal-model-opcua.git",
+		"spinal-model-bacnet": "git+https://github.com/spinalcom/spinal-model-bacnet.git",
+		"@syncfusion/ej2-vue-navigations": "^31.2.5"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"description": ""
+}
