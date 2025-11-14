@@ -2,8 +2,8 @@ import { SpinalContextApp, spinalContextMenuService } from "spinal-env-viewer-co
 import { SPINAL_RELATION_PTR_LST_TYPE, SpinalGraphService } from "spinal-env-viewer-graph-service";
 const { spinalPanelManagerService } = require("spinal-env-viewer-panel-manager-service");
 import { SpinalBmsNetwork } from "spinal-model-bmsnetwork";
+import { NETWORK_DIALOG, SIDEBAR } from "../js/constants";
 
-const SIDEBAR = "GraphManagerSideBar";
 const networkContextType = "Network";
 
 class CreateNetworkBtn extends SpinalContextApp {
@@ -28,7 +28,7 @@ class CreateNetworkBtn extends SpinalContextApp {
 
 
     action(option) {
-        spinalPanelManagerService.openPanel("createNetworkDialog", {
+        spinalPanelManagerService.openPanel(NETWORK_DIALOG, {
             selectedNode: option.selectedNode,
             context: option.context,
             title: "Create BMS Network",

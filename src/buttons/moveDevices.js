@@ -4,10 +4,8 @@ import { BACNET_ORGAN_TYPE } from "spinal-model-bacnet";
 import { OPCUA_ORGAN_TYPE } from "spinal-model-opcua";
 
 const { spinalPanelManagerService } = require("spinal-env-viewer-panel-manager-service");
-import { MOVE_DEVICES_PANEL_NAME } from "../js/constants";
+import { MOVE_DEVICES_PANEL_NAME, SIDEBAR } from "../js/constants";
 
-
-const SIDEBAR = "GraphManagerSideBar";
 
 class MoveDevicesToAnotherOrgan extends SpinalContextApp {
     constructor() {

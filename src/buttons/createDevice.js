@@ -2,14 +2,12 @@ import { SpinalContextApp, spinalContextMenuService } from "spinal-env-viewer-co
 import { SPINAL_RELATION_PTR_LST_TYPE, SpinalGraphService } from "spinal-env-viewer-graph-service";
 const { spinalPanelManagerService } = require("spinal-env-viewer-panel-manager-service");
 import { SpinalBmsDevice, SpinalBmsNetwork } from "spinal-model-bmsnetwork";
-
-const SIDEBAR = "GraphManagerSideBar";
-const networkContextType = "Network";
+import { NETWORK_DIALOG, SIDEBAR } from "../js/constants";
 
 class CreateDeviceBtn extends SpinalContextApp {
     constructor() {
         super(
-            "Create BMS Device Network",
+            "Create BMS Device",
             "This button allows to create new Device", {
             icon: "add_circle",
             icon_type: "in",
@@ -27,7 +25,7 @@ class CreateDeviceBtn extends SpinalContextApp {
 
 
     action(option) {
-        spinalPanelManagerService.openPanel("createNetworkDialog", {
+        spinalPanelManagerService.openPanel(NETWORK_DIALOG, {
             selectedNode: option.selectedNode,
             context: option.context,
             title: "Create BMS Device",
@@ -35,6 +33,9 @@ class CreateDeviceBtn extends SpinalContextApp {
             callback: (deviceName, parentId, contextId) => {
                 const device = new SpinalBmsDevice(deviceName, SpinalBmsDevice.nodeTypeName);
                 const deviceId = SpinalGraphService.createNode({ name: deviceName, type: SpinalBmsDevice.nodeTypeName }, device);
+                const deviceNode = SpinalGraphService.getRealNode(deviceId);
+                if (deviceNode) deviceNode.info.add_attr({ idNetwork: deviceId });
+
                 return SpinalGraphService.addChildInContext(parentId, deviceId, contextId, SpinalBmsDevice.relationName, SPINAL_RELATION_PTR_LST_TYPE);
             }
 
