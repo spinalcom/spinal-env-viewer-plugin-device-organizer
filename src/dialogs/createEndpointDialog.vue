@@ -48,7 +48,6 @@
 
 <script>
 
-import { create } from "lodash";
 import { SPINAL_RELATION_PTR_LST_TYPE, SpinalGraphService } from "spinal-env-viewer-graph-service";
 import { InputDataEndpointDataType, SpinalBmsEndpoint, SpinalBmsEndpointGroup } from "spinal-model-bmsnetwork";
 
@@ -84,8 +83,8 @@ export default {
         async removed(option) {
             if (option.closeResult) {
                 const parentNodeId = await this._getParentNode(this.endpoint);
-                const { name, currentValue, dataType, path, unit } = this.endpoint;
-                const valueFormatted = this._formatCurrentValue(currentValue, dataType);
+                const { name, currentValue: value, dataType, path, unit } = this.endpoint;
+                const valueFormatted = this._formatCurrentValue(value, dataType);
 
                 const endpointModel = new SpinalBmsEndpoint(name, path, valueFormatted, unit, dataType, SpinalBmsEndpoint.nodeType);
 
