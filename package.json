@@ -1,5 +1,5 @@
 {
-	"name": "spinal-env-viewer-plugin-move-device",
+	"name": "spinal-env-viewer-plugin-device-organizer",
 	"version": "1.0.0",
 	"main": "src/index.js",
 	"scripts": {
